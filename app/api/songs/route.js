@@ -1,8 +1,7 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { getDatabase } from "@/lib/mongodb"
-import type { Song } from "@/lib/models/Song"
 
-export async function GET(request: NextRequest) {
+export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
     const page = Number.parseInt(searchParams.get("page") || "1")
@@ -11,10 +10,10 @@ export async function GET(request: NextRequest) {
     const genre = searchParams.get("genre") || ""
 
     const db = await getDatabase()
-    const songsCollection = db.collection<Song>("songs")
+    const songsCollection = db.collection("songs")
 
     // Build query
-    const query: any = {}
+    const query = {}
     if (search) {
       query.$or = [
         { title: { $regex: search, $options: "i" } },
@@ -55,14 +54,14 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     const songData = await request.json()
 
     const db = await getDatabase()
-    const songsCollection = db.collection<Song>("songs")
+    const songsCollection = db.collection("songs")
 
-    const newSong: Omit<Song, "_id"> = {
+    const newSong = {
       ...songData,
       plays: 0,
       likes: 0,

@@ -1,9 +1,9 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { getDatabase } from "@/lib/mongodb"
 import { verifyToken } from "@/lib/auth"
 import { ObjectId } from "mongodb"
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request, { params }) {
   try {
     // Get token from cookie
     const token = request.cookies.get("token")?.value

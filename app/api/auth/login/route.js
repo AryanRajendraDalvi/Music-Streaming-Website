@@ -1,9 +1,8 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { getDatabase } from "@/lib/mongodb"
 import { verifyPassword, generateToken } from "@/lib/auth"
-import type { User } from "@/lib/models/User"
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     const { email, password } = await request.json()
 
@@ -13,7 +12,7 @@ export async function POST(request: NextRequest) {
     }
 
     const db = await getDatabase()
-    const usersCollection = db.collection<User>("users")
+    const usersCollection = db.collection("users")
 
     // Find user
     const user = await usersCollection.findOne({ email })
@@ -28,11 +27,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate token
-    const token = generateToken(user._id!.toString())
+    const token = generateToken(user._id.toString())
 
     // Return user data (without password)
     const userResponse = {
-      _id: user._id!.toString(),
+      _id: user._id.toString(),
       name: user.name,
       email: user.email,
       avatar: user.avatar,

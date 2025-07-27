@@ -25,64 +25,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 
-interface Song {
-  id: string
-  title: string
-  artist: string
-  album: string
-  duration: string
-  coverUrl: string
-  audioUrl: string
-  liked: boolean
-}
-
-interface Playlist {
-  id: string
-  name: string
-  songs: Song[]
-  coverUrl: string
-}
-
-interface Artist {
-  id: string
-  name: string
-  genre: string
-  followers: string
-  imageUrl: string
-  verified: boolean
-}
-
-interface Album {
-  id: string
-  title: string
-  artist: string
-  releaseDate: string
-  coverUrl: string
-  songs: Song[]
-}
-
-interface Podcast {
-  id: string
-  title: string
-  host: string
-  description: string
-  duration: string
-  coverUrl: string
-  category: string
-  episodes: number
-}
-
-interface PopularPlaylist {
-  id: string
-  name: string
-  creator: string
-  description: string
-  coverUrl: string
-  songs: Song[]
-  followers: string
-}
-
-const mockSongs: Song[] = [
+const mockSongs = [
   {
     id: "1",
     title: "Blinding Lights",
@@ -145,7 +88,7 @@ const mockSongs: Song[] = [
   },
 ]
 
-const mockArtists: Artist[] = [
+const mockArtists = [
   {
     id: "1",
     name: "The Weeknd",
@@ -180,7 +123,7 @@ const mockArtists: Artist[] = [
   },
 ]
 
-const mockNewReleases: Album[] = [
+const mockNewReleases = [
   {
     id: "1",
     title: "Midnights",
@@ -215,7 +158,7 @@ const mockNewReleases: Album[] = [
   },
 ]
 
-const mockPopularPlaylists: PopularPlaylist[] = [
+const mockPopularPlaylists = [
   {
     id: "1",
     name: "Today's Top Hits",
@@ -254,7 +197,7 @@ const mockPopularPlaylists: PopularPlaylist[] = [
   },
 ]
 
-const mockPodcasts: Podcast[] = [
+const mockPodcasts = [
   {
     id: "1",
     title: "The Joe Rogan Experience",
@@ -298,17 +241,16 @@ const mockPodcasts: Podcast[] = [
 ]
 
 export default function HomePage() {
-  const [songs, setSongs] = useState<Song[]>(mockSongs)
-  const [playlists, setPlaylists] = useState<Playlist[]>([])
-  const [currentSong, setCurrentSong] = useState<Song | null>(null)
+  const [songs, setSongs] = useState(mockSongs)
+  const [playlists, setPlaylists] = useState([])
+  const [currentSong, setCurrentSong] = useState(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [activeTab, setActiveTab] = useState("home")
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
   const [newPlaylistName, setNewPlaylistName] = useState("")
   const { theme, setTheme } = useTheme()
-  const [showPlaylistDropdown, setShowPlaylistDropdown] = useState<string | null>(null)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     // Load data from localStorage
@@ -336,18 +278,18 @@ export default function HomePage() {
     }
   }, [])
 
-  const toggleLike = (songId: string) => {
+  const toggleLike = (songId) => {
     setSongs(songs.map((song) => (song.id === songId ? { ...song, liked: !song.liked } : song)))
   }
 
-  const playSong = (song: Song) => {
+  const playSong = (song) => {
     setCurrentSong(song)
     setIsPlaying(true)
   }
 
   const createPlaylist = () => {
     if (newPlaylistName.trim()) {
-      const newPlaylist: Playlist = {
+      const newPlaylist = {
         id: Date.now().toString(),
         name: newPlaylistName,
         songs: [],
@@ -359,7 +301,7 @@ export default function HomePage() {
     }
   }
 
-  const addToPlaylist = (song: Song, playlistId: string) => {
+  const addToPlaylist = (song, playlistId) => {
     setPlaylists(
       playlists.map((playlist) =>
         playlist.id === playlistId ? { ...playlist, songs: [...playlist.songs, song] } : playlist,

@@ -1,9 +1,8 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { getDatabase } from "@/lib/mongodb"
 import { hashPassword, generateToken } from "@/lib/auth"
-import type { User } from "@/lib/models/User"
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     const { name, email, password } = await request.json()
 
@@ -17,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     const db = await getDatabase()
-    const usersCollection = db.collection<User>("users")
+    const usersCollection = db.collection("users")
 
     // Check if user already exists
     const existingUser = await usersCollection.findOne({ email })
@@ -29,7 +28,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await hashPassword(password)
 
     // Create user
-    const newUser: Omit<User, "_id"> = {
+    const newUser = {
       name,
       email,
       password: hashedPassword,

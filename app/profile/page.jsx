@@ -10,18 +10,10 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Settings, CreditCard, Music, Crown } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-
-interface UserProfile {
-  id: string
-  name: string
-  email: string
-  avatar: string
-  plan: string
-  joinDate: string
-}
+import UserIcon from "@/components/icons/UserIcon" // Import the User icon component
 
 export default function ProfilePage() {
-  const [user, setUser] = useState<UserProfile | null>(null)
+  const [user, setUser] = useState(null)
   const [isEditing, setIsEditing] = useState(false)
   const [formData, setFormData] = useState({ name: "", email: "" })
   const router = useRouter()
@@ -46,12 +38,19 @@ export default function ProfilePage() {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("user")
-    router.push("/auth")
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" })
+      localStorage.removeItem("user")
+      router.push("/auth")
+    } catch (error) {
+      console.error("Logout error:", error)
+      localStorage.removeItem("user")
+      router.push("/auth")
+    }
   }
 
-  const getPlanBadge = (plan: string) => {
+  const getPlanBadge = (plan) => {
     switch (plan) {
       case "premium":
         return <Badge className="bg-blue-600">Premium</Badge>
@@ -80,7 +79,7 @@ export default function ProfilePage() {
       <div className="max-w-4xl mx-auto p-6">
         <div className="flex items-center space-x-4 mb-8">
           <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center">
-            {/* Placeholder for user icon */}
+            <UserIcon className="h-10 w-10 text-white" /> {/* Use the imported User icon component */}
           </div>
           <div>
             <h1 className="text-3xl font-bold">{user.name}</h1>
@@ -105,7 +104,7 @@ export default function ProfilePage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  {/* Placeholder for user icon */}
+                  <UserIcon className="h-5 w-5" /> {/* Use the imported User icon component */}
                   <span>Profile Information</span>
                 </CardTitle>
                 <CardDescription>Update your personal information and preferences</CardDescription>

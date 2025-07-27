@@ -65,11 +65,11 @@ const plans = [
 ]
 
 export default function MembershipPage() {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
-  const handleSelectPlan = (planId: string) => {
+  const handleSelectPlan = (planId) => {
     setSelectedPlan(planId)
     setIsLoading(true)
 

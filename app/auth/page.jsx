@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,57 +14,71 @@ export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
     setIsLoading(true)
 
     const formData = new FormData(e.currentTarget)
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
+    const email = formData.get("email")
+    const password = formData.get("password")
 
-    // Simulate login
-    setTimeout(() => {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          id: "1",
-          name: "John Doe",
-          email: email,
-          avatar: "/placeholder.svg?height=40&width=40",
-          plan: "free",
-          joinDate: new Date().toISOString(),
-        }),
-      )
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        localStorage.setItem("user", JSON.stringify(data.user))
+        router.push("/")
+      } else {
+        alert(data.error || "Login failed")
+      }
+    } catch (error) {
+      console.error("Login error:", error)
+      alert("Login failed")
+    } finally {
       setIsLoading(false)
-      router.push("/")
-    }, 1000)
+    }
   }
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
     setIsLoading(true)
 
     const formData = new FormData(e.currentTarget)
-    const name = formData.get("name") as string
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
+    const name = formData.get("name")
+    const email = formData.get("email")
+    const password = formData.get("password")
 
-    // Simulate signup
-    setTimeout(() => {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          id: "1",
-          name: name,
-          email: email,
-          avatar: "/placeholder.svg?height=40&width=40",
-          plan: "free",
-          joinDate: new Date().toISOString(),
-        }),
-      )
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        localStorage.setItem("user", JSON.stringify(data.user))
+        router.push("/membership")
+      } else {
+        alert(data.error || "Signup failed")
+      }
+    } catch (error) {
+      console.error("Signup error:", error)
+      alert("Signup failed")
+    } finally {
       setIsLoading(false)
-      router.push("/membership")
-    }, 1000)
+    }
   }
 
   return (

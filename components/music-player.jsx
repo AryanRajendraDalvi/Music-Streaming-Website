@@ -5,34 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { Play, Pause, SkipBack, SkipForward, Heart, Volume2, VolumeX, Repeat, Shuffle } from "lucide-react"
 
-interface Song {
-  id: string
-  title: string
-  artist: string
-  album: string
-  duration: string
-  coverUrl: string
-  audioUrl: string
-  liked: boolean
-}
-
-interface MusicPlayerProps {
-  song: Song
-  isPlaying: boolean
-  onPlayPause: () => void
-  onNext: () => void
-  onPrevious: () => void
-  onLike: () => void
-}
-
-export default function MusicPlayer({ song, isPlaying, onPlayPause, onNext, onPrevious, onLike }: MusicPlayerProps) {
+export default function MusicPlayer({ song, isPlaying, onPlayPause, onNext, onPrevious, onLike }) {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(70)
   const [isMuted, setIsMuted] = useState(false)
   const [isRepeat, setIsRepeat] = useState(false)
   const [isShuffle, setIsShuffle] = useState(false)
-  const audioRef = useRef<HTMLAudioElement>(null)
+  const audioRef = useRef(null)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -68,13 +48,13 @@ export default function MusicPlayer({ song, isPlaying, onPlayPause, onNext, onPr
     audio.volume = isMuted ? 0 : volume / 100
   }, [volume, isMuted])
 
-  const formatTime = (time: number) => {
+  const formatTime = (time) => {
     const minutes = Math.floor(time / 60)
     const seconds = Math.floor(time % 60)
     return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
-  const handleSeek = (value: number[]) => {
+  const handleSeek = (value) => {
     const audio = audioRef.current
     if (!audio) return
 

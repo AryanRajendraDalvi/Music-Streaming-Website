@@ -1,18 +1,17 @@
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import { getDatabase } from "@/lib/mongodb"
 import { verifyToken } from "@/lib/auth"
-import type { Playlist } from "@/lib/models/Playlist"
 
-export async function GET(request: NextRequest) {
+export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
     const userId = searchParams.get("userId")
     const isPublic = searchParams.get("public") === "true"
 
     const db = await getDatabase()
-    const playlistsCollection = db.collection<Playlist>("playlists")
+    const playlistsCollection = db.collection("playlists")
 
-    const query: any = {}
+    const query = {}
     if (userId) {
       query.creator = userId
     }
@@ -34,7 +33,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   try {
     // Get token from cookie
     const token = request.cookies.get("token")?.value
@@ -55,9 +54,9 @@ export async function POST(request: NextRequest) {
     }
 
     const db = await getDatabase()
-    const playlistsCollection = db.collection<Playlist>("playlists")
+    const playlistsCollection = db.collection("playlists")
 
-    const newPlaylist: Omit<Playlist, "_id"> = {
+    const newPlaylist = {
       name,
       description,
       coverUrl: "/placeholder.svg?height=200&width=200",

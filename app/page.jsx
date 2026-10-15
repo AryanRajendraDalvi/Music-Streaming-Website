@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import MusicPlayer from "@/components/music-player"
+import MusicChatbot from "@/components/music-chatbot"
 import { useTheme } from "@/components/theme-provider"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
@@ -1029,6 +1030,9 @@ export default function HomePage() {
           onLike={() => toggleLike(currentSong.id || currentSong._id)}
         />
       )}
+
+      {/* AI Music Concierge Chatbot */}
+      <MusicChatbot songs={songs} onPlaySong={playSong} currentSong={currentSong} />
     </div>
   )
 }

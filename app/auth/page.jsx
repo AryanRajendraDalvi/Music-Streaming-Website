@@ -87,7 +87,7 @@ export default function AuthPage() {
         <div className="flex items-center justify-center mb-8">
           <Link href="/" className="flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
             <ArrowLeft className="h-5 w-5" />
-            <span>Back to StreamFlow</span>
+            <span>Back to Riff</span>
           </Link>
         </div>
 
@@ -96,7 +96,7 @@ export default function AuthPage() {
             <div className="flex items-center justify-center mb-4">
               <Music className="h-8 w-8 text-white" />
             </div>
-            <CardTitle className="text-2xl text-white">Welcome to StreamFlow</CardTitle>
+            <CardTitle className="text-2xl text-white">Welcome to Riff</CardTitle>
             <CardDescription className="text-blue-100">Sign in to your account or create a new one</CardDescription>
           </CardHeader>
           <CardContent>

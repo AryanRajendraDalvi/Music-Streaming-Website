@@ -5,9 +5,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "StreamFlow - Music Streaming Platform",
+  title: "Riff - Music Streaming Platform",
   description: "Your ultimate music streaming experience",
-  generator: "v0.dev",
+  generator: "Riff",
 }
 
 export default function RootLayout({ children }) {

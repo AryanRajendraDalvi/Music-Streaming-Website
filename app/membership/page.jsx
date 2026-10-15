@@ -89,14 +89,14 @@ export default function MembershipPage() {
         <div className="flex items-center justify-between mb-8">
           <Link href="/" className="flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
             <ArrowLeft className="h-5 w-5" />
-            <span>Back to StreamFlow</span>
+            <span>Back to Riff</span>
           </Link>
         </div>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">Choose Your Plan</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Unlock the full potential of StreamFlow with our premium plans
+            Unlock the full potential of Riff with our premium plans
           </p>
         </div>
 

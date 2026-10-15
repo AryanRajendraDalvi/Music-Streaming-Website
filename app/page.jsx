@@ -255,7 +255,7 @@ const mockPopularPlaylists = [
   {
     id: "1",
     name: "Today's Top Hits",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "The biggest songs right now",
     coverUrl: "/playlists/top-hits.jpg",
     songs: mockSongs.slice(0, 4),
@@ -264,7 +264,7 @@ const mockPopularPlaylists = [
   {
     id: "2",
     name: "RapCaviar & Pop",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "New music and big tracks",
     coverUrl: "/playlists/rap-caviar.jpg",
     songs: mockSongs.slice(4, 8),
@@ -273,7 +273,7 @@ const mockPopularPlaylists = [
   {
     id: "3",
     name: "Pop Rising",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "Pop music on the rise",
     coverUrl: "/playlists/pop-rising.jpg",
     songs: mockSongs.slice(2, 6),
@@ -282,7 +282,7 @@ const mockPopularPlaylists = [
   {
     id: "4",
     name: "Chill Hits",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "Chill out to these laid back hits",
     coverUrl: "/playlists/chill-hits.jpg",
     songs: mockSongs.slice(6, 12),
@@ -448,8 +448,8 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-16 items-center px-6">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              StreamFlow
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-indigo-500 to-green-500 bg-clip-text text-transparent tracking-tight">
+              Riff
             </h1>
           </div>
 
@@ -870,7 +870,7 @@ export default function HomePage() {
                   Upgrade to Premium
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Unlock the full potential of StreamFlow with our premium plans
+                  Unlock the full potential of Riff with our premium plans
                 </p>
               </div>
 

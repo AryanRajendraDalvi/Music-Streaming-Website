@@ -70,7 +70,7 @@ export default function ProfilePage() {
         <div className="flex h-16 items-center px-6">
           <Link href="/" className="flex items-center space-x-2 hover:text-blue-600 transition-colors">
             <ArrowLeft className="h-5 w-5" />
-            <span>Back to StreamFlow</span>
+            <span>Back to Riff</span>
           </Link>
         </div>
       </header>

@@ -71,7 +71,7 @@ const sampleArtists = mediaData.artists.length > 0 ? mediaData.artists.map((a) =
 const samplePlaylists = [
   {
     name: "Today's Top Hits",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "The biggest songs right now across the globe.",
     coverUrl: "/playlists/top-hits.jpg",
     songs: sampleSongs.slice(0, 5),
@@ -81,7 +81,7 @@ const samplePlaylists = [
   },
   {
     name: "RapCaviar & Pop Rising",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "Chart-toppers and high energy hits.",
     coverUrl: "/playlists/rap-caviar.jpg",
     songs: sampleSongs.slice(3, 8),
@@ -91,7 +91,7 @@ const samplePlaylists = [
   },
   {
     name: "Pop Rising",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "Who's next in the world of pop.",
     coverUrl: "/playlists/pop-rising.jpg",
     songs: sampleSongs.slice(2, 7),
@@ -101,7 +101,7 @@ const samplePlaylists = [
   },
   {
     name: "Chill Hits",
-    creator: "StreamFlow",
+    creator: "Riff",
     description: "Kick back to these smooth, relaxing tracks.",
     coverUrl: "/playlists/chill-hits.jpg",
     songs: sampleSongs.slice(0, 6),

@@ -28,7 +28,7 @@ export async function POST(request) {
       }
 
       return NextResponse.json({
-        message: `🎵 **StreamFlow AI Concierge**:\n\nTo unlock live real-time Gemini AI recommendations, please add your **GEMINI_API_KEY** in your \`.env.local\` file.\n\nBased on your query *"${messages[messages.length - 1]?.content || 'music'}"*, here are some curated picks from the StreamFlow library you can play right now:`,
+        message: `🎵 **RiffBot**:\n\nTo unlock live real-time Gemini AI recommendations, please add your **GEMINI_API_KEY** in your \`.env.local\` file.\n\nBased on your query *"${messages[messages.length - 1]?.content || 'music'}"*, here are some curated picks from the Riff library you can play right now:`,
         recommendedSongs: matchedSongs,
         apiKeyMissing: true
       })
@@ -44,10 +44,10 @@ export async function POST(request) {
       duration: s.duration
     }))
 
-    const systemPrompt = `You are "StreamFlow AI", an expert personal music curator and concierge embedded inside the StreamFlow music streaming platform.
+    const systemPrompt = `You are "RiffBot", an expert personal music curator and concierge embedded inside the "Riff" music streaming platform.
 Your goal is to understand the user's mood, taste, activity, favorite artists, or genres and provide personalized, engaging music recommendations.
 
-Available Catalog in StreamFlow:
+Available Catalog in Riff:
 ${JSON.stringify(catalogSummary, null, 2)}
 
 ${currentSong ? `User is currently listening to: "${currentSong.title}" by ${currentSong.artist} (${currentSong.genre}).` : ""}

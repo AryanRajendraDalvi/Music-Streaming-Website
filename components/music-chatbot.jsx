@@ -20,7 +20,7 @@ export default function MusicChatbot({ songs = [], onPlaySong, currentSong }) {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hey there! 🎵 I'm your **StreamFlow AI Concierge**, powered by Google Gemini.\n\nTell me your current mood, activity, or favorite artists, and I'll curate personalized recommendations you can play right now!",
+      content: "Hey there! 🎵 I'm **RiffBot**, your personal AI music assistant powered by Google Gemini.\n\nTell me your current mood, activity, or favorite artists, and I'll curate personalized recommendations you can play right now!",
       recommendedSongs: [],
     },
   ])
@@ -107,7 +107,7 @@ export default function MusicChatbot({ songs = [], onPlaySong, currentSong }) {
           className="rounded-full h-14 px-5 shadow-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white flex items-center space-x-2 border border-white/20 hover:scale-105 transition-all"
         >
           <Sparkles className="h-5 w-5 text-yellow-300 animate-pulse" />
-          <span className="font-semibold text-sm">Ask AI Concierge</span>
+          <span className="font-semibold text-sm">Ask RiffBot</span>
         </Button>
       )}
 
@@ -122,12 +122,12 @@ export default function MusicChatbot({ songs = [], onPlaySong, currentSong }) {
               </div>
               <div>
                 <div className="flex items-center space-x-2">
-                  <h3 className="font-bold text-sm">StreamFlow AI</h3>
+                  <h3 className="font-bold text-sm">RiffBot</h3>
                   <Badge variant="outline" className="text-[10px] px-1.5 py-0 border-blue-500/50 text-blue-500 font-mono">
-                    Gemini
+                    Gemini 2.5
                   </Badge>
                 </div>
-                <p className="text-xs text-muted-foreground">Personalized Music Recommendations</p>
+                <p className="text-xs text-muted-foreground">AI Music Concierge</p>
               </div>
             </div>
             <Button
@@ -236,7 +236,7 @@ export default function MusicChatbot({ songs = [], onPlaySong, currentSong }) {
               className="flex items-center space-x-2 w-full"
             >
               <Input
-                placeholder="Ask for vibes, mood, or songs..."
+                placeholder="Ask RiffBot for vibes, mood, or songs..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isLoading}

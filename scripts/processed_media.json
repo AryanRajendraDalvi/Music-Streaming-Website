@@ -1,0 +1,226 @@
+{
+  "songs": [
+    {
+      "id": "1",
+      "title": "Blinding Lights (Remix)",
+      "artist": "The Weeknd & ROSALÍA",
+      "album": "Blinding Lights (Remix) - Single",
+      "genre": "Pop",
+      "duration": "3:36",
+      "coverUrl": "/covers/blinding-lights.jpg",
+      "audioUrl": "/audio/blinding-lights.m4a",
+      "plays": 1200000,
+      "likes": 45000,
+      "liked": true
+    },
+    {
+      "id": "2",
+      "title": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "album": "Fine Line",
+      "genre": "Pop",
+      "duration": "2:54",
+      "coverUrl": "/covers/watermelon-sugar.jpg",
+      "audioUrl": "/audio/watermelon-sugar.m4a",
+      "plays": 1150000,
+      "likes": 43500,
+      "liked": false
+    },
+    {
+      "id": "3",
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "album": "Future Nostalgia",
+      "genre": "Pop",
+      "duration": "3:24",
+      "coverUrl": "/covers/levitating.jpg",
+      "audioUrl": "/audio/levitating.m4a",
+      "plays": 1100000,
+      "likes": 42000,
+      "liked": true
+    },
+    {
+      "id": "4",
+      "title": "good 4 u",
+      "artist": "Olivia Rodrigo",
+      "album": "SOUR (Video Version)",
+      "genre": "Pop Rock",
+      "duration": "2:58",
+      "coverUrl": "/covers/good-4-u.jpg",
+      "audioUrl": "/audio/good-4-u.m4a",
+      "plays": 1050000,
+      "likes": 40500,
+      "liked": false
+    },
+    {
+      "id": "5",
+      "title": "Unstable (feat. The Kid LAROI)",
+      "artist": "Justin Bieber",
+      "album": "Justice",
+      "genre": "Pop",
+      "duration": "2:38",
+      "coverUrl": "/covers/stay.jpg",
+      "audioUrl": "/audio/stay.m4a",
+      "plays": 1000000,
+      "likes": 39000,
+      "liked": true
+    },
+    {
+      "id": "6",
+      "title": "Heat Waves",
+      "artist": "Glass Animals",
+      "album": "Dreamland",
+      "genre": "Indie Pop",
+      "duration": "3:59",
+      "coverUrl": "/covers/heat-waves.jpg",
+      "audioUrl": "/audio/heat-waves.m4a",
+      "plays": 950000,
+      "likes": 37500,
+      "liked": false
+    },
+    {
+      "id": "7",
+      "title": "Starboy (feat. Daft Punk)",
+      "artist": "The Weeknd",
+      "album": "Starboy",
+      "genre": "R&B, Pop",
+      "duration": "3:50",
+      "coverUrl": "/covers/starboy.jpg",
+      "audioUrl": "/audio/starboy.m4a",
+      "plays": 900000,
+      "likes": 36000,
+      "liked": true
+    },
+    {
+      "id": "8",
+      "title": "As It Was",
+      "artist": "Harry Styles",
+      "album": "Harry's House",
+      "genre": "Pop",
+      "duration": "2:47",
+      "coverUrl": "/covers/as-it-was.jpg",
+      "audioUrl": "/audio/as-it-was.m4a",
+      "plays": 850000,
+      "likes": 34500,
+      "liked": false
+    },
+    {
+      "id": "9",
+      "title": "Cruel Summer",
+      "artist": "Taylor Swift",
+      "album": "Lover",
+      "genre": "Pop",
+      "duration": "2:58",
+      "coverUrl": "/covers/cruel-summer.jpg",
+      "audioUrl": "/audio/cruel-summer.m4a",
+      "plays": 800000,
+      "likes": 33000,
+      "liked": true
+    },
+    {
+      "id": "10",
+      "title": "bad guy",
+      "artist": "Billie Eilish",
+      "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+      "genre": "Electropop",
+      "duration": "3:14",
+      "coverUrl": "/covers/bad-guy.jpg",
+      "audioUrl": "/audio/bad-guy.m4a",
+      "plays": 750000,
+      "likes": 31500,
+      "liked": false
+    },
+    {
+      "id": "11",
+      "title": "Shape of You",
+      "artist": "Ed Sheeran",
+      "album": "÷ (Deluxe)",
+      "genre": "Pop",
+      "duration": "3:54",
+      "coverUrl": "/covers/shape-of-you.jpg",
+      "audioUrl": "/audio/shape-of-you.m4a",
+      "plays": 700000,
+      "likes": 30000,
+      "liked": true
+    },
+    {
+      "id": "12",
+      "title": "Don't Start Now",
+      "artist": "Dua Lipa",
+      "album": "Don't Start Now - Single",
+      "genre": "Disco, Pop",
+      "duration": "3:03",
+      "coverUrl": "/covers/dont-start-now.jpg",
+      "audioUrl": "/audio/dont-start-now.m4a",
+      "plays": 650000,
+      "likes": 28500,
+      "liked": false
+    }
+  ],
+  "artists": [
+    {
+      "id": "1",
+      "name": "The Weeknd",
+      "genre": "R&B, Pop",
+      "followers": "85.2M",
+      "imageUrl": "/artists/the-weeknd.jpg",
+      "verified": true
+    },
+    {
+      "id": "2",
+      "name": "Dua Lipa",
+      "genre": "Pop, Dance",
+      "followers": "73.1M",
+      "imageUrl": "/artists/dua-lipa.jpg",
+      "verified": true
+    },
+    {
+      "id": "3",
+      "name": "Harry Styles",
+      "genre": "Pop, Rock",
+      "followers": "68.9M",
+      "imageUrl": "/artists/harry-styles.jpg",
+      "verified": true
+    },
+    {
+      "id": "4",
+      "name": "Olivia Rodrigo",
+      "genre": "Pop, Alternative",
+      "followers": "45.3M",
+      "imageUrl": "/artists/olivia-rodrigo.jpg",
+      "verified": true
+    },
+    {
+      "id": "5",
+      "name": "Taylor Swift",
+      "genre": "Pop, Country",
+      "followers": "92.4M",
+      "imageUrl": "/artists/taylor-swift.jpg",
+      "verified": true
+    },
+    {
+      "id": "6",
+      "name": "Billie Eilish",
+      "genre": "Alternative, Pop",
+      "followers": "62.7M",
+      "imageUrl": "/artists/billie-eilish.jpg",
+      "verified": true
+    },
+    {
+      "id": "7",
+      "name": "Ed Sheeran",
+      "genre": "Pop, Acoustic",
+      "followers": "78.5M",
+      "imageUrl": "/artists/ed-sheeran.jpg",
+      "verified": true
+    },
+    {
+      "id": "8",
+      "name": "Glass Animals",
+      "genre": "Indie Rock",
+      "followers": "18.3M",
+      "imageUrl": "/artists/glass-animals.jpg",
+      "verified": true
+    }
+  ]
+}

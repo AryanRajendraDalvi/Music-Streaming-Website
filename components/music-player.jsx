@@ -19,29 +19,51 @@ export default function MusicPlayer({ song, isPlaying, onPlayPause, onNext, onPr
     if (!audio) return
 
     const updateTime = () => setCurrentTime(audio.currentTime)
-    const updateDuration = () => setDuration(audio.duration)
+    const updateDuration = () => {
+      if (!isNaN(audio.duration)) {
+        setDuration(audio.duration)
+      }
+    }
+    const handleEnded = () => {
+      if (isRepeat) {
+        audio.currentTime = 0
+        audio.play().catch(console.warn)
+      } else if (onNext) {
+        onNext()
+      }
+    }
 
     audio.addEventListener("timeupdate", updateTime)
     audio.addEventListener("loadedmetadata", updateDuration)
+    audio.addEventListener("ended", handleEnded)
 
     return () => {
       audio.removeEventListener("timeupdate", updateTime)
       audio.removeEventListener("loadedmetadata", updateDuration)
+      audio.removeEventListener("ended", handleEnded)
     }
-  }, [])
+  }, [isRepeat, onNext])
 
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
 
     if (isPlaying) {
-      audio.play().catch((err) => {
-        console.warn("Audio playback interrupted or failed:", err)
-      })
+      try {
+        audio.load()
+        const playPromise = audio.play()
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Audio playback interrupted or failed:", err)
+          })
+        }
+      } catch (err) {
+        console.warn("Audio load/play error:", err)
+      }
     } else {
       audio.pause()
     }
-  }, [isPlaying, song])
+  }, [isPlaying, song?.audioUrl])
 
   useEffect(() => {
     const audio = audioRef.current

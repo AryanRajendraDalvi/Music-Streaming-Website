@@ -28,13 +28,13 @@ import { Badge } from "@/components/ui/badge"
 const mockSongs = [
   {
     id: "1",
-    title: "Blinding Lights",
-    artist: "The Weeknd",
-    album: "After Hours",
-    duration: "3:20",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
-    liked: false,
+    title: "Blinding Lights (Remix)",
+    artist: "The Weeknd & ROSALÍA",
+    album: "After Hours / Blinding Lights",
+    duration: "3:36",
+    coverUrl: "/covers/blinding-lights.jpg",
+    audioUrl: "/audio/blinding-lights.m4a",
+    liked: true,
   },
   {
     id: "2",
@@ -42,49 +42,109 @@ const mockSongs = [
     artist: "Harry Styles",
     album: "Fine Line",
     duration: "2:54",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
-    liked: true,
+    coverUrl: "/covers/watermelon-sugar.jpg",
+    audioUrl: "/audio/watermelon-sugar.m4a",
+    liked: false,
   },
   {
     id: "3",
     title: "Levitating",
     artist: "Dua Lipa",
     album: "Future Nostalgia",
-    duration: "3:23",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
-    liked: false,
-  },
-  {
-    id: "4",
-    title: "Good 4 U",
-    artist: "Olivia Rodrigo",
-    album: "SOUR",
-    duration: "2:58",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
+    duration: "3:24",
+    coverUrl: "/covers/levitating.jpg",
+    audioUrl: "/audio/levitating.m4a",
     liked: true,
   },
   {
-    id: "5",
-    title: "Stay",
-    artist: "The Kid LAROI & Justin Bieber",
-    album: "F*CK LOVE 3",
-    duration: "2:21",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
+    id: "4",
+    title: "good 4 u",
+    artist: "Olivia Rodrigo",
+    album: "SOUR",
+    duration: "2:58",
+    coverUrl: "/covers/good-4-u.jpg",
+    audioUrl: "/audio/good-4-u.m4a",
     liked: false,
+  },
+  {
+    id: "5",
+    title: "Unstable (feat. The Kid LAROI)",
+    artist: "Justin Bieber",
+    album: "Justice",
+    duration: "2:38",
+    coverUrl: "/covers/stay.jpg",
+    audioUrl: "/audio/stay.m4a",
+    liked: true,
   },
   {
     id: "6",
     title: "Heat Waves",
     artist: "Glass Animals",
     album: "Dreamland",
-    duration: "3:58",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    audioUrl: "/placeholder-audio.mp3",
+    duration: "3:59",
+    coverUrl: "/covers/heat-waves.jpg",
+    audioUrl: "/audio/heat-waves.m4a",
+    liked: false,
+  },
+  {
+    id: "7",
+    title: "Starboy (feat. Daft Punk)",
+    artist: "The Weeknd",
+    album: "Starboy",
+    duration: "3:50",
+    coverUrl: "/covers/starboy.jpg",
+    audioUrl: "/audio/starboy.m4a",
     liked: true,
+  },
+  {
+    id: "8",
+    title: "As It Was",
+    artist: "Harry Styles",
+    album: "Harry's House",
+    duration: "2:47",
+    coverUrl: "/covers/as-it-was.jpg",
+    audioUrl: "/audio/as-it-was.m4a",
+    liked: false,
+  },
+  {
+    id: "9",
+    title: "Cruel Summer",
+    artist: "Taylor Swift",
+    album: "Lover",
+    duration: "2:58",
+    coverUrl: "/covers/cruel-summer.jpg",
+    audioUrl: "/audio/cruel-summer.m4a",
+    liked: true,
+  },
+  {
+    id: "10",
+    title: "bad guy",
+    artist: "Billie Eilish",
+    album: "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+    duration: "3:14",
+    coverUrl: "/covers/bad-guy.jpg",
+    audioUrl: "/audio/bad-guy.m4a",
+    liked: false,
+  },
+  {
+    id: "11",
+    title: "Shape of You",
+    artist: "Ed Sheeran",
+    album: "÷ (Divide)",
+    duration: "3:54",
+    coverUrl: "/covers/shape-of-you.jpg",
+    audioUrl: "/audio/shape-of-you.m4a",
+    liked: true,
+  },
+  {
+    id: "12",
+    title: "Don't Start Now",
+    artist: "Dua Lipa",
+    album: "Future Nostalgia",
+    duration: "3:03",
+    coverUrl: "/covers/dont-start-now.jpg",
+    audioUrl: "/audio/dont-start-now.m4a",
+    liked: false,
   },
 ]
 
@@ -94,7 +154,7 @@ const mockArtists = [
     name: "The Weeknd",
     genre: "R&B, Pop",
     followers: "85.2M",
-    imageUrl: "/placeholder.svg?height=200&width=200",
+    imageUrl: "/artists/the-weeknd.jpg",
     verified: true,
   },
   {
@@ -102,7 +162,7 @@ const mockArtists = [
     name: "Dua Lipa",
     genre: "Pop, Dance",
     followers: "73.1M",
-    imageUrl: "/placeholder.svg?height=200&width=200",
+    imageUrl: "/artists/dua-lipa.jpg",
     verified: true,
   },
   {
@@ -110,7 +170,7 @@ const mockArtists = [
     name: "Harry Styles",
     genre: "Pop, Rock",
     followers: "68.9M",
-    imageUrl: "/placeholder.svg?height=200&width=200",
+    imageUrl: "/artists/harry-styles.jpg",
     verified: true,
   },
   {
@@ -118,7 +178,39 @@ const mockArtists = [
     name: "Olivia Rodrigo",
     genre: "Pop, Alternative",
     followers: "45.3M",
-    imageUrl: "/placeholder.svg?height=200&width=200",
+    imageUrl: "/artists/olivia-rodrigo.jpg",
+    verified: true,
+  },
+  {
+    id: "5",
+    name: "Taylor Swift",
+    genre: "Pop, Country",
+    followers: "92.4M",
+    imageUrl: "/artists/taylor-swift.jpg",
+    verified: true,
+  },
+  {
+    id: "6",
+    name: "Billie Eilish",
+    genre: "Alternative, Pop",
+    followers: "62.7M",
+    imageUrl: "/artists/billie-eilish.jpg",
+    verified: true,
+  },
+  {
+    id: "7",
+    name: "Ed Sheeran",
+    genre: "Pop, Acoustic",
+    followers: "78.5M",
+    imageUrl: "/artists/ed-sheeran.jpg",
+    verified: true,
+  },
+  {
+    id: "8",
+    name: "Glass Animals",
+    genre: "Indie Rock",
+    followers: "18.3M",
+    imageUrl: "/artists/glass-animals.jpg",
     verified: true,
   },
 ]
@@ -128,32 +220,32 @@ const mockNewReleases = [
     id: "1",
     title: "Midnights",
     artist: "Taylor Swift",
-    releaseDate: "2023-10-21",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    releaseDate: "2022-10-21",
+    coverUrl: "/albums/midnights.jpg",
     songs: [],
   },
   {
     id: "2",
     title: "Un Verano Sin Ti",
     artist: "Bad Bunny",
-    releaseDate: "2023-10-15",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    releaseDate: "2022-05-06",
+    coverUrl: "/albums/un-verano-sin-ti.jpg",
     songs: [],
   },
   {
     id: "3",
     title: "Renaissance",
     artist: "Beyoncé",
-    releaseDate: "2023-10-10",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    releaseDate: "2022-07-29",
+    coverUrl: "/albums/renaissance.jpg",
     songs: [],
   },
   {
     id: "4",
-    title: "As It Was",
+    title: "Harry's House",
     artist: "Harry Styles",
-    releaseDate: "2023-10-05",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    releaseDate: "2022-05-20",
+    coverUrl: "/albums/harrys-house.jpg",
     songs: [],
   },
 ]
@@ -164,17 +256,17 @@ const mockPopularPlaylists = [
     name: "Today's Top Hits",
     creator: "StreamFlow",
     description: "The biggest songs right now",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    songs: mockSongs.slice(0, 3),
+    coverUrl: "/playlists/top-hits.jpg",
+    songs: mockSongs.slice(0, 4),
     followers: "32.1M",
   },
   {
     id: "2",
-    name: "RapCaviar",
+    name: "RapCaviar & Pop",
     creator: "StreamFlow",
     description: "New music and big tracks",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    songs: mockSongs.slice(1, 4),
+    coverUrl: "/playlists/rap-caviar.jpg",
+    songs: mockSongs.slice(4, 8),
     followers: "15.8M",
   },
   {
@@ -182,8 +274,8 @@ const mockPopularPlaylists = [
     name: "Pop Rising",
     creator: "StreamFlow",
     description: "Pop music on the rise",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    songs: mockSongs.slice(2, 5),
+    coverUrl: "/playlists/pop-rising.jpg",
+    songs: mockSongs.slice(2, 6),
     followers: "8.9M",
   },
   {
@@ -191,8 +283,8 @@ const mockPopularPlaylists = [
     name: "Chill Hits",
     creator: "StreamFlow",
     description: "Chill out to these laid back hits",
-    coverUrl: "/placeholder.svg?height=200&width=200",
-    songs: mockSongs.slice(0, 4),
+    coverUrl: "/playlists/chill-hits.jpg",
+    songs: mockSongs.slice(6, 12),
     followers: "12.3M",
   },
 ]
@@ -204,7 +296,7 @@ const mockPodcasts = [
     host: "Joe Rogan",
     description: "Conversations with interesting people",
     duration: "2h 45m",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    coverUrl: "/podcasts/joe-rogan.jpg",
     category: "Comedy",
     episodes: 2000,
   },
@@ -214,7 +306,7 @@ const mockPodcasts = [
     host: "Ashley Flowers",
     description: "True crime podcast",
     duration: "45m",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    coverUrl: "/podcasts/crime-junkie.jpg",
     category: "True Crime",
     episodes: 350,
   },
@@ -224,7 +316,7 @@ const mockPodcasts = [
     host: "The New York Times",
     description: "This is what the news should sound like",
     duration: "25m",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    coverUrl: "/podcasts/the-daily.jpg",
     category: "News",
     episodes: 1500,
   },
@@ -234,7 +326,7 @@ const mockPodcasts = [
     host: "Conan O'Brien",
     description: "Comedy podcast with celebrity guests",
     duration: "1h 15m",
-    coverUrl: "/placeholder.svg?height=200&width=200",
+    coverUrl: "/podcasts/conan-obrien.jpg",
     category: "Comedy",
     episodes: 200,
   },
@@ -253,20 +345,47 @@ export default function HomePage() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    // Load data from localStorage
     const savedSongs = localStorage.getItem("musicApp_songs")
     const savedPlaylists = localStorage.getItem("musicApp_playlists")
 
-    if (savedSongs) {
-      setSongs(JSON.parse(savedSongs))
+    if (savedSongs && !savedSongs.includes("placeholder-audio.mp3") && !savedSongs.includes("/placeholder.svg")) {
+      try {
+        setSongs(JSON.parse(savedSongs))
+      } catch (e) {
+        setSongs(mockSongs)
+      }
+    } else {
+      setSongs(mockSongs)
+      localStorage.setItem("musicApp_songs", JSON.stringify(mockSongs))
     }
-    if (savedPlaylists) {
-      setPlaylists(JSON.parse(savedPlaylists))
+
+    if (savedPlaylists && !savedPlaylists.includes("/placeholder.svg")) {
+      try {
+        setPlaylists(JSON.parse(savedPlaylists))
+      } catch (e) {
+        setPlaylists(mockPopularPlaylists)
+      }
+    } else {
+      setPlaylists(mockPopularPlaylists)
+      localStorage.setItem("musicApp_playlists", JSON.stringify(mockPopularPlaylists))
     }
+
+    // Sync from MongoDB API
+    fetch("/api/songs")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && data.songs && data.songs.length > 0) {
+          const mapped = data.songs.map((s, idx) => ({
+            id: s._id || s.id || String(idx + 1),
+            ...s,
+          }))
+          setSongs(mapped)
+        }
+      })
+      .catch(() => {})
   }, [])
 
   useEffect(() => {
-    // Save to localStorage whenever songs or playlists change
     localStorage.setItem("musicApp_songs", JSON.stringify(songs))
     localStorage.setItem("musicApp_playlists", JSON.stringify(playlists))
   }, [songs, playlists])
@@ -279,7 +398,11 @@ export default function HomePage() {
   }, [])
 
   const toggleLike = (songId) => {
-    setSongs(songs.map((song) => (song.id === songId ? { ...song, liked: !song.liked } : song)))
+    setSongs(
+      songs.map((song) =>
+        (song.id === songId || song._id === songId) ? { ...song, liked: !song.liked } : song,
+      ),
+    )
   }
 
   const playSong = (song) => {
@@ -293,7 +416,7 @@ export default function HomePage() {
         id: Date.now().toString(),
         name: newPlaylistName,
         songs: [],
-        coverUrl: "/placeholder.svg?height=200&width=200",
+        coverUrl: "/playlists/top-hits.jpg",
       }
       setPlaylists([...playlists, newPlaylist])
       setNewPlaylistName("")
@@ -890,16 +1013,20 @@ export default function HomePage() {
           isPlaying={isPlaying}
           onPlayPause={() => setIsPlaying(!isPlaying)}
           onNext={() => {
-            const currentIndex = songs.findIndex((s) => s.id === currentSong.id)
+            const currentIdentifier = currentSong.id || currentSong._id
+            const currentIndex = songs.findIndex((s) => (s.id || s._id) === currentIdentifier)
             const nextSong = songs[(currentIndex + 1) % songs.length]
             setCurrentSong(nextSong)
+            setIsPlaying(true)
           }}
           onPrevious={() => {
-            const currentIndex = songs.findIndex((s) => s.id === currentSong.id)
+            const currentIdentifier = currentSong.id || currentSong._id
+            const currentIndex = songs.findIndex((s) => (s.id || s._id) === currentIdentifier)
             const prevSong = songs[(currentIndex - 1 + songs.length) % songs.length]
             setCurrentSong(prevSong)
+            setIsPlaying(true)
           }}
-          onLike={() => toggleLike(currentSong.id)}
+          onLike={() => toggleLike(currentSong.id || currentSong._id)}
         />
       )}
     </div>

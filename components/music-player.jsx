@@ -35,11 +35,13 @@ export default function MusicPlayer({ song, isPlaying, onPlayPause, onNext, onPr
     if (!audio) return
 
     if (isPlaying) {
-      audio.play()
+      audio.play().catch((err) => {
+        console.warn("Audio playback interrupted or failed:", err)
+      })
     } else {
       audio.pause()
     }
-  }, [isPlaying])
+  }, [isPlaying, song])
 
   useEffect(() => {
     const audio = audioRef.current

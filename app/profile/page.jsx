@@ -7,10 +7,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Settings, CreditCard, Music, Crown } from "lucide-react"
+import { ArrowLeft, Settings, CreditCard, Music, Crown, User as UserIcon } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import UserIcon from "@/components/icons/UserIcon" // Import the User icon component
 
 export default function ProfilePage() {
   const [user, setUser] = useState(null)

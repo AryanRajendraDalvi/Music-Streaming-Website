@@ -25,129 +25,12 @@ import { useTheme } from "@/components/theme-provider"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-
-const mockSongs = [
-  {
-    id: "1",
-    title: "Blinding Lights",
-    artist: "The Weeknd",
-    album: "After Hours",
-    duration: "3:20",
-    coverUrl: "/covers/blinding-lights.jpg",
-    audioUrl: "/audio/blinding-lights.mp3",
-    liked: true,
-  },
-  {
-    id: "2",
-    title: "Watermelon Sugar",
-    artist: "Harry Styles",
-    album: "Fine Line",
-    duration: "2:54",
-    coverUrl: "/covers/watermelon-sugar.jpg",
-    audioUrl: "/audio/watermelon-sugar.mp3",
-    liked: false,
-  },
-  {
-    id: "3",
-    title: "Levitating",
-    artist: "Dua Lipa",
-    album: "Future Nostalgia",
-    duration: "3:24",
-    coverUrl: "/covers/levitating.jpg",
-    audioUrl: "/audio/levitating.mp3",
-    liked: true,
-  },
-  {
-    id: "4",
-    title: "good 4 u",
-    artist: "Olivia Rodrigo",
-    album: "SOUR",
-    duration: "2:58",
-    coverUrl: "/covers/good-4-u.jpg",
-    audioUrl: "/audio/good-4-u.mp3",
-    liked: false,
-  },
-  {
-    id: "5",
-    title: "STAY",
-    artist: "The Kid LAROI & Justin Bieber",
-    album: "F*CK LOVE 3: OVERKILL",
-    duration: "2:21",
-    coverUrl: "/covers/stay.jpg",
-    audioUrl: "/audio/stay.mp3",
-    liked: true,
-  },
-  {
-    id: "6",
-    title: "Heat Waves",
-    artist: "Glass Animals",
-    album: "Dreamland",
-    duration: "3:59",
-    coverUrl: "/covers/heat-waves.jpg",
-    audioUrl: "/audio/heat-waves.mp3",
-    liked: false,
-  },
-  {
-    id: "7",
-    title: "Starboy",
-    artist: "The Weeknd ft. Daft Punk",
-    album: "Starboy",
-    duration: "3:50",
-    coverUrl: "/covers/starboy.jpg",
-    audioUrl: "/audio/starboy.mp3",
-    liked: true,
-  },
-  {
-    id: "8",
-    title: "As It Was",
-    artist: "Harry Styles",
-    album: "Harry's House",
-    duration: "2:47",
-    coverUrl: "/covers/as-it-was.jpg",
-    audioUrl: "/audio/as-it-was.mp3",
-    liked: false,
-  },
-  {
-    id: "9",
-    title: "Cruel Summer",
-    artist: "Taylor Swift",
-    album: "Lover",
-    duration: "2:58",
-    coverUrl: "/covers/cruel-summer.jpg",
-    audioUrl: "/audio/cruel-summer.mp3",
-    liked: true,
-  },
-  {
-    id: "10",
-    title: "bad guy",
-    artist: "Billie Eilish",
-    album: "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-    duration: "3:14",
-    coverUrl: "/covers/bad-guy.jpg",
-    audioUrl: "/audio/bad-guy.mp3",
-    liked: false,
-  },
-  {
-    id: "11",
-    title: "Shape of You",
-    artist: "Ed Sheeran",
-    album: "÷ (Divide)",
-    duration: "3:54",
-    coverUrl: "/covers/shape-of-you.jpg",
-    audioUrl: "/audio/shape-of-you.mp3",
-    liked: true,
-  },
-  {
-    id: "12",
-    title: "Don't Start Now",
-    artist: "Dua Lipa",
-    album: "Future Nostalgia",
-    duration: "3:03",
-    coverUrl: "/covers/dont-start-now.jpg",
-    audioUrl: "/audio/dont-start-now.mp3",
-    liked: false,
-  },
-]
+import {
+  DEFAULT_SONGS as mockSongs,
+  DEFAULT_PLAYLISTS as mockPopularPlaylists,
+  DEFAULT_PODCASTS as mockPodcasts,
+  DEFAULT_ALBUMS as mockNewReleases,
+} from "@/lib/default-data"
 
 const mockArtists = [
   {
@@ -216,126 +99,9 @@ const mockArtists = [
   },
 ]
 
-const mockNewReleases = [
-  {
-    id: "1",
-    title: "Midnights",
-    artist: "Taylor Swift",
-    releaseDate: "2022-10-21",
-    coverUrl: "/albums/midnights.jpg",
-    songs: [],
-  },
-  {
-    id: "2",
-    title: "Un Verano Sin Ti",
-    artist: "Bad Bunny",
-    releaseDate: "2022-05-06",
-    coverUrl: "/albums/un-verano-sin-ti.jpg",
-    songs: [],
-  },
-  {
-    id: "3",
-    title: "Renaissance",
-    artist: "Beyoncé",
-    releaseDate: "2022-07-29",
-    coverUrl: "/albums/renaissance.jpg",
-    songs: [],
-  },
-  {
-    id: "4",
-    title: "Harry's House",
-    artist: "Harry Styles",
-    releaseDate: "2022-05-20",
-    coverUrl: "/albums/harrys-house.jpg",
-    songs: [],
-  },
-]
-
-const mockPopularPlaylists = [
-  {
-    id: "1",
-    name: "Today's Top Hits",
-    creator: "Riff",
-    description: "The biggest songs right now",
-    coverUrl: "/playlists/top-hits.jpg",
-    songs: mockSongs.slice(0, 4),
-    followers: "32.1M",
-  },
-  {
-    id: "2",
-    name: "RapCaviar & Pop",
-    creator: "Riff",
-    description: "New music and big tracks",
-    coverUrl: "/playlists/rap-caviar.jpg",
-    songs: mockSongs.slice(4, 8),
-    followers: "15.8M",
-  },
-  {
-    id: "3",
-    name: "Pop Rising",
-    creator: "Riff",
-    description: "Pop music on the rise",
-    coverUrl: "/playlists/pop-rising.jpg",
-    songs: mockSongs.slice(2, 6),
-    followers: "8.9M",
-  },
-  {
-    id: "4",
-    name: "Chill Hits",
-    creator: "Riff",
-    description: "Chill out to these laid back hits",
-    coverUrl: "/playlists/chill-hits.jpg",
-    songs: mockSongs.slice(6, 12),
-    followers: "12.3M",
-  },
-]
-
-const mockPodcasts = [
-  {
-    id: "1",
-    title: "The Joe Rogan Experience",
-    host: "Joe Rogan",
-    description: "Conversations with interesting people",
-    duration: "2h 45m",
-    coverUrl: "/podcasts/joe-rogan.jpg",
-    category: "Comedy",
-    episodes: 2000,
-  },
-  {
-    id: "2",
-    title: "Crime Junkie",
-    host: "Ashley Flowers",
-    description: "True crime podcast",
-    duration: "45m",
-    coverUrl: "/podcasts/crime-junkie.jpg",
-    category: "True Crime",
-    episodes: 350,
-  },
-  {
-    id: "3",
-    title: "The Daily",
-    host: "The New York Times",
-    description: "This is what the news should sound like",
-    duration: "25m",
-    coverUrl: "/podcasts/the-daily.jpg",
-    category: "News",
-    episodes: 1500,
-  },
-  {
-    id: "4",
-    title: "Conan O'Brien Needs a Friend",
-    host: "Conan O'Brien",
-    description: "Comedy podcast with celebrity guests",
-    duration: "1h 15m",
-    coverUrl: "/podcasts/conan-obrien.jpg",
-    category: "Comedy",
-    episodes: 200,
-  },
-]
-
 export default function HomePage() {
   const [songs, setSongs] = useState(mockSongs)
-  const [playlists, setPlaylists] = useState([])
+  const [playlists, setPlaylists] = useState(mockPopularPlaylists)
   const [currentSong, setCurrentSong] = useState(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
@@ -581,7 +347,15 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold mb-6">Popular Playlists</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {mockPopularPlaylists.map((playlist) => (
-                    <Card key={playlist.id} className="group hover:bg-muted/50 transition-colors">
+                    <Card
+                      key={playlist.id}
+                      className="group hover:bg-muted/50 transition-colors cursor-pointer"
+                      onClick={() => {
+                        if (playlist.songs && playlist.songs.length > 0) {
+                          playSong(playlist.songs[0])
+                        }
+                      }}
+                    >
                       <CardContent className="p-4">
                         <div className="relative mb-4">
                           <img
@@ -592,7 +366,12 @@ export default function HomePage() {
                           <Button
                             size="icon"
                             className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700"
-                            onClick={() => playlist.songs.length > 0 && playSong(playlist.songs[0])}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              if (playlist.songs && playlist.songs.length > 0) {
+                                playSong(playlist.songs[0])
+                              }
+                            }}
                           >
                             <Play className="h-4 w-4" />
                           </Button>
@@ -610,25 +389,34 @@ export default function HomePage() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Popular Artists</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {mockArtists.map((artist) => (
-                    <Card key={artist.id} className="group hover:bg-muted/50 transition-colors">
-                      <CardContent className="p-4 text-center">
-                        <div className="relative mb-4">
-                          <img
-                            src={artist.imageUrl || "/placeholder.svg"}
-                            alt={artist.name}
-                            className="w-full aspect-square object-cover rounded-full mx-auto"
-                          />
-                          {artist.verified && (
-                            <CheckCircle className="absolute bottom-2 right-2 h-6 w-6 text-blue-500 bg-white rounded-full" />
-                          )}
-                        </div>
-                        <h3 className="font-semibold truncate">{artist.name}</h3>
-                        <p className="text-sm text-muted-foreground">{artist.genre}</p>
-                        <p className="text-xs text-muted-foreground mt-1">{artist.followers} followers</p>
-                      </CardContent>
-                    </Card>
-                  ))}
+                  {mockArtists.map((artist) => {
+                    const artistSong = songs.find(
+                      (s) => s.artist.toLowerCase().includes(artist.name.toLowerCase().split(" ")[0])
+                    ) || songs[0]
+                    return (
+                      <Card
+                        key={artist.id}
+                        className="group hover:bg-muted/50 transition-colors cursor-pointer"
+                        onClick={() => playSong(artistSong)}
+                      >
+                        <CardContent className="p-4 text-center">
+                          <div className="relative mb-4">
+                            <img
+                              src={artist.imageUrl || "/placeholder.svg"}
+                              alt={artist.name}
+                              className="w-full aspect-square object-cover rounded-full mx-auto"
+                            />
+                            {artist.verified && (
+                              <CheckCircle className="absolute bottom-2 right-2 h-6 w-6 text-blue-500 bg-white rounded-full" />
+                            )}
+                          </div>
+                          <h3 className="font-semibold truncate">{artist.name}</h3>
+                          <p className="text-sm text-muted-foreground">{artist.genre}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{artist.followers} followers</p>
+                        </CardContent>
+                      </Card>
+                    )
+                  })}
                 </div>
               </section>
 
@@ -636,30 +424,48 @@ export default function HomePage() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">New Releases</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {mockNewReleases.map((album) => (
-                    <Card key={album.id} className="group hover:bg-muted/50 transition-colors">
-                      <CardContent className="p-4">
-                        <div className="relative mb-4">
-                          <img
-                            src={album.coverUrl || "/placeholder.svg"}
-                            alt={album.title}
-                            className="w-full aspect-square object-cover rounded-md"
-                          />
-                          <Button
-                            size="icon"
-                            className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700"
-                          >
-                            <Play className="h-4 w-4" />
-                          </Button>
-                        </div>
-                        <h3 className="font-semibold truncate">{album.title}</h3>
-                        <p className="text-sm text-muted-foreground truncate">{album.artist}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {new Date(album.releaseDate).toLocaleDateString()}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
+                  {mockNewReleases.map((album) => {
+                    const albumTrack = (album.songs && album.songs.length > 0) ? album.songs[0] : {
+                      id: `album-${album.id}`,
+                      title: album.title,
+                      artist: album.artist,
+                      album: album.title,
+                      coverUrl: album.coverUrl,
+                      audioUrl: mockSongs[0].audioUrl,
+                    }
+                    return (
+                      <Card
+                        key={album.id}
+                        className="group hover:bg-muted/50 transition-colors cursor-pointer"
+                        onClick={() => playSong(albumTrack)}
+                      >
+                        <CardContent className="p-4">
+                          <div className="relative mb-4">
+                            <img
+                              src={album.coverUrl || "/placeholder.svg"}
+                              alt={album.title}
+                              className="w-full aspect-square object-cover rounded-md"
+                            />
+                            <Button
+                              size="icon"
+                              className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                playSong(albumTrack)
+                              }}
+                            >
+                              <Play className="h-4 w-4" />
+                            </Button>
+                          </div>
+                          <h3 className="font-semibold truncate">{album.title}</h3>
+                          <p className="text-sm text-muted-foreground truncate">{album.artist}</p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {new Date(album.releaseDate).toLocaleDateString()}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    )
+                  })}
                 </div>
               </section>
 
@@ -756,15 +562,38 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold">Your Library</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {playlists.map((playlist) => (
-                  <Card key={playlist.id} className="group hover:bg-muted/50 transition-colors">
+                  <Card
+                    key={playlist.id}
+                    className="group hover:bg-muted/50 transition-colors cursor-pointer"
+                    onClick={() => {
+                      if (playlist.songs && playlist.songs.length > 0) {
+                        playSong(playlist.songs[0])
+                      }
+                      setActiveTab(`playlist-${playlist.id}`)
+                    }}
+                  >
                     <CardContent className="p-4">
-                      <img
-                        src={playlist.coverUrl || "/placeholder.svg"}
-                        alt={playlist.name}
-                        className="w-full aspect-square object-cover rounded-md mb-4"
-                      />
+                      <div className="relative mb-4">
+                        <img
+                          src={playlist.coverUrl || "/placeholder.svg"}
+                          alt={playlist.name}
+                          className="w-full aspect-square object-cover rounded-md"
+                        />
+                        <Button
+                          size="icon"
+                          className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (playlist.songs && playlist.songs.length > 0) {
+                              playSong(playlist.songs[0])
+                            }
+                          }}
+                        >
+                          <Play className="h-4 w-4" />
+                        </Button>
+                      </div>
                       <h3 className="font-semibold truncate">{playlist.name}</h3>
-                      <p className="text-sm text-muted-foreground">{playlist.songs.length} songs</p>
+                      <p className="text-sm text-muted-foreground">{playlist.songs?.length || 0} songs</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -781,15 +610,24 @@ export default function HomePage() {
 
                 return (
                   <>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-6">
                       <img
                         src={playlist.coverUrl || "/placeholder.svg"}
                         alt={playlist.name}
-                        className="w-48 h-48 rounded-lg object-cover"
+                        className="w-48 h-48 rounded-lg object-cover shadow-lg"
                       />
                       <div>
                         <h2 className="text-4xl font-bold mb-2">{playlist.name}</h2>
-                        <p className="text-muted-foreground">{playlist.songs.length} songs</p>
+                        <p className="text-muted-foreground mb-4">{playlist.songs?.length || 0} songs</p>
+                        {playlist.songs && playlist.songs.length > 0 && (
+                          <Button
+                            className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 flex items-center space-x-2"
+                            onClick={() => playSong(playlist.songs[0])}
+                          >
+                            <Play className="h-4 w-4 mr-2" />
+                            <span>Play All</span>
+                          </Button>
+                        )}
                       </div>
                     </div>
 
@@ -831,7 +669,11 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold">Podcasts</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {mockPodcasts.map((podcast) => (
-                  <Card key={podcast.id} className="group hover:bg-muted/50 transition-colors">
+                  <Card
+                    key={podcast.id}
+                    className="group hover:bg-muted/50 transition-colors cursor-pointer"
+                    onClick={() => playSong(podcast)}
+                  >
                     <CardContent className="p-4">
                       <div className="relative mb-4">
                         <img
@@ -842,6 +684,10 @@ export default function HomePage() {
                         <Button
                           size="icon"
                           className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-green-600 hover:bg-green-700"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            playSong(podcast)
+                          }}
                         >
                           <Play className="h-4 w-4" />
                         </Button>
@@ -1016,15 +862,15 @@ export default function HomePage() {
           onNext={() => {
             const currentIdentifier = currentSong.id || currentSong._id
             const currentIndex = songs.findIndex((s) => (s.id || s._id) === currentIdentifier)
-            const nextSong = songs[(currentIndex + 1) % songs.length]
-            setCurrentSong(nextSong)
+            const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % songs.length : 0
+            setCurrentSong(songs[nextIndex])
             setIsPlaying(true)
           }}
           onPrevious={() => {
             const currentIdentifier = currentSong.id || currentSong._id
             const currentIndex = songs.findIndex((s) => (s.id || s._id) === currentIdentifier)
-            const prevSong = songs[(currentIndex - 1 + songs.length) % songs.length]
-            setCurrentSong(prevSong)
+            const prevIndex = currentIndex > 0 ? currentIndex - 1 : songs.length - 1
+            setCurrentSong(songs[prevIndex])
             setIsPlaying(true)
           }}
           onLike={() => toggleLike(currentSong.id || currentSong._id)}

@@ -15,6 +15,35 @@ export async function POST(request) {
       return NextResponse.json({ error: "Password must be at least 6 characters long" }, { status: 400 })
     }
 
+    if (!process.env.MONGODB_URI) {
+      // Standalone mode: accept registration with mock user
+      const token = generateToken("demo-user-" + Date.now())
+      const userResponse = {
+        _id: "demo-user-" + Date.now(),
+        name,
+        email,
+        plan: "free",
+        joinDate: new Date().toISOString(),
+        likedSongs: [],
+        playlists: [],
+      }
+
+      const response = NextResponse.json({
+        message: "User registered successfully (standalone mode)",
+        user: userResponse,
+        token,
+      })
+
+      response.cookies.set("token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 7 * 24 * 60 * 60,
+      })
+
+      return response
+    }
+
     const db = await getDatabase()
     const usersCollection = db.collection("users")
 

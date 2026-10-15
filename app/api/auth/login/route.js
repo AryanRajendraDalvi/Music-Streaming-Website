@@ -11,6 +11,38 @@ export async function POST(request) {
       return NextResponse.json({ error: "Email and password are required" }, { status: 400 })
     }
 
+    if (!process.env.MONGODB_URI) {
+      // Standalone mode: accept login with mock user
+      const name = email.split("@")[0] || "User"
+      const capitalized = name.charAt(0).toUpperCase() + name.slice(1)
+      const token = generateToken("demo-user-id")
+      const userResponse = {
+        _id: "demo-user-id",
+        name: capitalized,
+        email,
+        avatar: "/placeholder.svg?height=100&width=100",
+        plan: "premium",
+        joinDate: new Date().toISOString(),
+        likedSongs: ["1", "3", "5"],
+        playlists: [],
+      }
+
+      const response = NextResponse.json({
+        message: "Login successful (standalone demo)",
+        user: userResponse,
+        token,
+      })
+
+      response.cookies.set("token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 7 * 24 * 60 * 60,
+      })
+
+      return response
+    }
+
     const db = await getDatabase()
     const usersCollection = db.collection("users")
 

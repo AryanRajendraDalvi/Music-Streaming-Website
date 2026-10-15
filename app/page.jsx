@@ -28,12 +28,12 @@ import { Badge } from "@/components/ui/badge"
 const mockSongs = [
   {
     id: "1",
-    title: "Blinding Lights (Remix)",
-    artist: "The Weeknd & ROSALÍA",
-    album: "After Hours / Blinding Lights",
-    duration: "3:36",
+    title: "Blinding Lights",
+    artist: "The Weeknd",
+    album: "After Hours",
+    duration: "3:20",
     coverUrl: "/covers/blinding-lights.jpg",
-    audioUrl: "/audio/blinding-lights.m4a",
+    audioUrl: "/audio/blinding-lights.mp3",
     liked: true,
   },
   {
@@ -43,7 +43,7 @@ const mockSongs = [
     album: "Fine Line",
     duration: "2:54",
     coverUrl: "/covers/watermelon-sugar.jpg",
-    audioUrl: "/audio/watermelon-sugar.m4a",
+    audioUrl: "/audio/watermelon-sugar.mp3",
     liked: false,
   },
   {
@@ -53,7 +53,7 @@ const mockSongs = [
     album: "Future Nostalgia",
     duration: "3:24",
     coverUrl: "/covers/levitating.jpg",
-    audioUrl: "/audio/levitating.m4a",
+    audioUrl: "/audio/levitating.mp3",
     liked: true,
   },
   {
@@ -63,17 +63,17 @@ const mockSongs = [
     album: "SOUR",
     duration: "2:58",
     coverUrl: "/covers/good-4-u.jpg",
-    audioUrl: "/audio/good-4-u.m4a",
+    audioUrl: "/audio/good-4-u.mp3",
     liked: false,
   },
   {
     id: "5",
-    title: "Unstable (feat. The Kid LAROI)",
-    artist: "Justin Bieber",
-    album: "Justice",
-    duration: "2:38",
+    title: "STAY",
+    artist: "The Kid LAROI & Justin Bieber",
+    album: "F*CK LOVE 3: OVERKILL",
+    duration: "2:21",
     coverUrl: "/covers/stay.jpg",
-    audioUrl: "/audio/stay.m4a",
+    audioUrl: "/audio/stay.mp3",
     liked: true,
   },
   {
@@ -83,17 +83,17 @@ const mockSongs = [
     album: "Dreamland",
     duration: "3:59",
     coverUrl: "/covers/heat-waves.jpg",
-    audioUrl: "/audio/heat-waves.m4a",
+    audioUrl: "/audio/heat-waves.mp3",
     liked: false,
   },
   {
     id: "7",
-    title: "Starboy (feat. Daft Punk)",
-    artist: "The Weeknd",
+    title: "Starboy",
+    artist: "The Weeknd ft. Daft Punk",
     album: "Starboy",
     duration: "3:50",
     coverUrl: "/covers/starboy.jpg",
-    audioUrl: "/audio/starboy.m4a",
+    audioUrl: "/audio/starboy.mp3",
     liked: true,
   },
   {
@@ -103,7 +103,7 @@ const mockSongs = [
     album: "Harry's House",
     duration: "2:47",
     coverUrl: "/covers/as-it-was.jpg",
-    audioUrl: "/audio/as-it-was.m4a",
+    audioUrl: "/audio/as-it-was.mp3",
     liked: false,
   },
   {
@@ -113,7 +113,7 @@ const mockSongs = [
     album: "Lover",
     duration: "2:58",
     coverUrl: "/covers/cruel-summer.jpg",
-    audioUrl: "/audio/cruel-summer.m4a",
+    audioUrl: "/audio/cruel-summer.mp3",
     liked: true,
   },
   {
@@ -123,7 +123,7 @@ const mockSongs = [
     album: "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
     duration: "3:14",
     coverUrl: "/covers/bad-guy.jpg",
-    audioUrl: "/audio/bad-guy.m4a",
+    audioUrl: "/audio/bad-guy.mp3",
     liked: false,
   },
   {
@@ -133,7 +133,7 @@ const mockSongs = [
     album: "÷ (Divide)",
     duration: "3:54",
     coverUrl: "/covers/shape-of-you.jpg",
-    audioUrl: "/audio/shape-of-you.m4a",
+    audioUrl: "/audio/shape-of-you.mp3",
     liked: true,
   },
   {
@@ -143,7 +143,7 @@ const mockSongs = [
     album: "Future Nostalgia",
     duration: "3:03",
     coverUrl: "/covers/dont-start-now.jpg",
-    audioUrl: "/audio/dont-start-now.m4a",
+    audioUrl: "/audio/dont-start-now.mp3",
     liked: false,
   },
 ]
@@ -348,7 +348,7 @@ export default function HomePage() {
     const savedSongs = localStorage.getItem("musicApp_songs")
     const savedPlaylists = localStorage.getItem("musicApp_playlists")
 
-    if (savedSongs && !savedSongs.includes("placeholder-audio.mp3") && !savedSongs.includes("/placeholder.svg")) {
+    if (savedSongs && savedSongs.includes(".mp3") && !savedSongs.includes("/placeholder")) {
       try {
         setSongs(JSON.parse(savedSongs))
       } catch (e) {
